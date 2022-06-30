@@ -104,6 +104,7 @@ int main(){
   
     cout << "Enter your name: "<<endl;
     cin.getline (y_name, 6);        // max length is 6 can not be more than that, if u exceed that takes upto 5 characters only as last one is for \0(null character)
+    // lets say input given is jassu 
     cout<<y_name<<endl ;
   
     cout << "Enter your City: "<<endl;
@@ -121,7 +122,7 @@ int main(){
     */
     string p ;
     cout<<"Give input via command line,you are taking input using get line and by default delimiter is new line"<<endl ;
-    getline(cin,p) ;
+    getline(cin,p) ;  // lets say input given is jassu 
     cout<<p<<endl ; // here by default delimiter is newline 
     cout<<endl ;
 
@@ -356,6 +357,57 @@ comparision is done via lexicographical order
     return 0 ;
 }
 ```
+
+```
+Enter your name: 
+jassu
+jassu
+Enter your City: 
+Enter your profession (press $ to complete): 
+Give input via command line,you are taking input using get line and by default delimiter is new line
+jassu
+jassu
+
+hello this is jaswanth$
+hello this is jaswanth
+22
+h
+
+1) hello this is jaswanth
+
+
+
+h
+
+2) htnawsaj si siht olle
+
+3) htnawsaj si siht olle
+
+4) hello this is jaswanth
+
+5) htnawsaj si siht olleh
+
+6) htnawsaj si siht olleh
+
+7) hello this is jaswanth
+
+8) hello this is jaswanth
+
+before swapping
+hello
+howareyou
+after swapping
+howareyou
+hello
+owa
+llo th
+strcpy( name3, name1) : Guru99
+strcat( name1, name2): Guru99John
+strlen(name1) : 10
+
+```
+
+
 
 
 

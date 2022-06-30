@@ -357,7 +357,7 @@ comparision is done via lexicographical order
     return 0 ;
 }
 ```
-
+### Output
 ```
 Enter your name: 
 jassu

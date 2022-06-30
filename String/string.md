@@ -2,7 +2,7 @@
 ## Lets look into string library
 
 First of all note that string class and library both are present , we will look into the library as most of the member functions in string class are present in the library we discuss few other functions too over here we have to use cstring/string.h for these functions strcpy() strcat() strlen() strcmp() otherwise string is fine except for these four functions we can use either string.h or string or cstring but if we are using these we must have cstring/string.h but not string
-So I would recommend to use cstring/string.h everytime to avoid confusion
+So I would recommend to use cstring/string.h everytime to avoid confusion. In c++ one use cstring in c one uses string.h
 
 Certain functions associated with the strings are :
 

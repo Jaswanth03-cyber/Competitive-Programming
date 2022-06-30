@@ -39,7 +39,7 @@ int abs(int) : This function takes integer number as an argument and return its 
 double pow(double, double) : This function takes one argument as base and other as exponent.
 double hypot(double, double) : This function requires two sides of the right angled triangle to give output as its hypotenuse.
 double floor(double) : This functions returns the integer value lesser or equal to argument passed in the function.
-double fabs(double) : This function returns the absolute value of any number.
+double fabs(double) : This function returns the absolute value of any number, i.e. even for floating point values
 double acos(double) : This function returns the arc cosine of argument. The argument to acos() must be in the range -1 to 1 ; otherwise, a domain error occurs.
 double asin(double) : This function returns the arc sine of argument. The argument to asin() must be in the range -1 to 1 ; otherwise, a domain error occurs.
 double atan(double) : This function returns the arc tangent of arg.

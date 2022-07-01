@@ -18,7 +18,7 @@ int main(){
     }
 
     for(auto i = v.begin() ; i != v.end() ; i++){
-        cout<<get<0>(*i)<<" "<<get<1>(*i)<<" "<<get<2>(*i)<<endl ;
+        cout<<get<0>(*i)<<" "<<get<1>(*i)<<" "<<get<2>(*i)<<endl ;        // be carefull while accessing the elements
     }
 
 

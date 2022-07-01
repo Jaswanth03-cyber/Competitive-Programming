@@ -26,7 +26,7 @@ int main(){
     v.erase(a + 2) ;
 
     for(auto i = v.begin() ; i != v.end() ; i++){
-        cout<<get<0>(*i)<<" "<<get<1>(*i)<<" "<<get<2>(*i)<<endl ;     // rest all are same as pair and vector only 
+        cout<<get<0>(*i)<<" "<<get<1>(*i)<<" "<<get<2>(*i)<<endl ;     // rest all are same as pair and vector only we can not use get in pair 
     }
 
     return 0 ;

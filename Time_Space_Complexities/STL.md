@@ -8,7 +8,7 @@ STL has four components
 3. Iterators
 4. Functions
 
-First we will look about the Containers, then about the algoritms next followed by functions.
+We will look about the Containers in deep 
 
 ## Containers
 
@@ -190,9 +190,6 @@ Here also for accessing the elements we do like in the list or priority_queue an
 For learning about maps you can have a look over here [Maps](https://www.geeksforgeeks.org/mapat-mapswap-c-stl/)
 
 
-## Algorithms
-
-Have a look over here [STL](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/#:~:text=The%20Standard%20Template%20Library%20(STL,classes%2C%20algorithms%2C%20and%20iterators.)
 
 
 

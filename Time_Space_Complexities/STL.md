@@ -9,6 +9,7 @@ STL has four components
 4. Functions
 
 First we will look about the Containers, then about the algoritms next followed by functions.
+
 ## Containers
 
 ### Vectors
@@ -184,7 +185,14 @@ Stacks are a type of container adaptors with LIFO(Last In First Out) type of wor
 
 Here also for accessing the elements we do like in the list or priority_queue and the time complexities of all the operations is constant time as removing and adding is both done from the back. 
 
+### Maps 
 
+For learning about maps you can have a look over here (https://www.geeksforgeeks.org/mapat-mapswap-c-stl/)[Maps]
+
+
+## Algorithms
+
+Have a look over here (https://www.geeksforgeeks.org/the-c-standard-template-library-stl/#:~:text=The%20Standard%20Template%20Library%20(STL,classes%2C%20algorithms%2C%20and%20iterators.)(STL)
 
 
 

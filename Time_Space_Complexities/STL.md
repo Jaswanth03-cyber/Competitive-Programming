@@ -187,12 +187,12 @@ Here also for accessing the elements we do like in the list or priority_queue an
 
 ### Maps 
 
-For learning about maps you can have a look over here (https://www.geeksforgeeks.org/mapat-mapswap-c-stl/)[Maps]
+For learning about maps you can have a look over here [Maps](https://www.geeksforgeeks.org/mapat-mapswap-c-stl/)
 
 
 ## Algorithms
 
-Have a look over here (https://www.geeksforgeeks.org/the-c-standard-template-library-stl/#:~:text=The%20Standard%20Template%20Library%20(STL,classes%2C%20algorithms%2C%20and%20iterators.)(STL)
+Have a look over here [STL](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/#:~:text=The%20Standard%20Template%20Library%20(STL,classes%2C%20algorithms%2C%20and%20iterators.)
 
 
 

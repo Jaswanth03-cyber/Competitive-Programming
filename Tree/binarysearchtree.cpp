@@ -206,6 +206,19 @@ Height of the node can be calculated simillarly like height of a tree only thing
 
         return height ;
     }
+
+/*
+Diameter is nothing but the maximum length of a path between any two nodes in the tree 
+*/
+    int diameteroftree(node *n){
+        int diameter_tree = 0 ;
+        int height_left = heightoftree(n->left) ;
+        int height_right = heightoftree(n->right) ;
+
+        diameter_tree = height_left + height_right + 2 ;
+
+        return diameter_tree ;
+    }
 };
 
 
@@ -303,6 +316,10 @@ int main(int argc, char **argv){
     int height_of_node10 = T.getnodeheight(n, 30) ;
     cout<<"height of node 30 is : "<<height_of_node10<<endl ;
 
+    int diameter_tree_1 = 0 ;
+    diameter_tree_1 = T.diameteroftree(n) ;
+    cout<<"diameter of the tree is : "<<diameter_tree_1<<endl ;
+
     T.Delete(n, 150) ;
     T.Delete(n, 120) ;
     T.Delete(n, 40) ;
@@ -371,7 +388,9 @@ int main(int argc, char **argv){
     int height_of_node_10 = T.getnodeheight(n, 70) ;
     cout<<"height of node 70 is : "<<height_of_node_10<<endl  ;
 
-
+    int diameter_tree_2 = 0 ;
+    diameter_tree_2 = T.diameteroftree(n) ;
+    cout<<"diameter of the tree is : "<<diameter_tree_2<<endl ;
 
  
     return 0 ;

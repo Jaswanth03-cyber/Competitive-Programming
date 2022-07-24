@@ -14,15 +14,17 @@ node* Newnode(int a){
     n->right = nullptr ;
     return n ;
 }
-// class BST
 int change(int *b){
     *b = (*b)*(*b) ;
     return *b ;
 }
+// class BST
 class binarysearchtree{
 
-    public:
+    private: 
     node *root ;
+
+    public:
 // constructor with root initialisation 
     binarysearchtree(int a){
         root = Newnode(a) ;
@@ -30,6 +32,10 @@ class binarysearchtree{
 // constructor with root as nullptr 
     binarysearchtree(){
         root = nullptr ;
+    }
+
+    node *getroot(){
+        return this->root ;
     }
 // insertion of new node 
     node* insert(node *n, int a){
@@ -76,12 +82,8 @@ class binarysearchtree{
     }
 // searching for a node with a given value 
     node* search(node* n, int a){
-        if(n == nullptr){
-            // cout<<"There are no nodes in the tree to search"<<endl ;
-            return n ;
-        }
         if(n->data == a){
-            cout<<"The node with value "<<a<<" is found"<<endl ;
+            // cout<<"The node with value "<<a<<" is found"<<endl ;
             return n ;
         }
         if(n->data > a){
@@ -90,6 +92,7 @@ class binarysearchtree{
         if(n->data < a){
             return search(n->right,a) ;
         }
+        return nullptr ;
     }
 // In order successor of a given node node with the min value of all the nodes whose keys are greater than the given key
     node* inorder_sucessor(node *n){
@@ -111,15 +114,15 @@ class binarysearchtree{
         if(n == nullptr){
             return n ;
         } 
-    // If the key to be deleted is smaller than the root's key then it lies in left subtree
+    // If the key to be Deleted is smaller than the root's key then it lies in left subtree
         if(n->data > a){
             n->left = Delete(n->left,a) ;
         }
-    // If the key to be deleted is greater than the root's key, then it lies in right subtree
+    // If the key to be Deleted is greater than the root's key, then it lies in right subtree
         else if(n->data < a){
             n->right = Delete(n->right,a) ;
         }
-    // if key is same as root's key, then This is the node to be deleted
+    // if key is same as root's key, then This is the node to be Deleted
         else{
         // node with no children case 1 
             if(n->right == nullptr && n->left == nullptr){
@@ -150,56 +153,226 @@ class binarysearchtree{
         */
         
         // If we want to replace it by inorder successor this is the code 
-            node *temp = inorder_sucessor(n) ;
         // copying the data of inorder sucessor 
-            cout<<temp->data<<endl ;
+            // cout<<temp->data<<endl ;
+            node *temp = inorder_sucessor(n) ;
             n->data = temp->data ;
             n->right = Delete(n->right, temp->data);
         }
         return n ;
     }
+
+/*
+In a tree data structure, the total number of egdes from root node to a particular node is called as DEPTH of that Node. 
+*/
+    void getdepth(node *n, int a, int &depth){
+        if(n == nullptr){
+            return ;
+        }
+        if(n->data == a){
+            return ;  
+        }
+        else if(n->data > a){
+            depth++ ;
+            getdepth(n->left, a, depth) ;
+        }
+        else{
+            depth++ ;
+            getdepth(n->right, a, depth) ;
+        }
+    }
+
+/*
+In a tree data structure, the total number of edges from leaf node to a particular node in the longest path is called 
+as height of that Node. Maximum height can be from any of the left or right so at every call we take 
+maximum of the two(left and right) at every call 
+*/
+    int heightoftree(node *n){
+        if(n == nullptr){
+            return -1 ; 
+        }
+        return max(heightoftree(n->left) + 1, heightoftree(n->right) + 1) ;
+    }
+
+/*
+Height of the node can be calculated simillarly like height of a tree only thing is that we need to think that node as the root
+*/
+    int getnodeheight(node *n, int a){
+        int height = 0 ;
+
+        node *required_node = search(n, a) ;
+
+        height = heightoftree(required_node) ;
+
+        return height ;
+    }
 };
 
 
 /*
-Here in Delete node when we have two children for the node which we want to delete we replace it by in order sucessor and delete 
-it we can also do this we can replace it by in order predecessor and delete it for that implementation I will keep it in the comments
+Here in Delete node when we have two children for the node which we want to Delete we replace it by in order sucessor and Delete 
+it we can also do this we can replace it by in order predecessor and Delete it for that implementation I will keep it in the comments
 
 */
 int main(int argc, char **argv){
-    binarysearchtree T(50) ;
-    node *n = T.root ;
-    //node *m = T.insert(n,45) ;
-    int a = 3 ;
-    int b = change(&a) ;
-    cout<<b<<endl ;
-    cout<<a<<endl ;
-    node *m =  T.insert(n,35) ;
+    binarysearchtree T(100) ;
+    node *n = T.getroot() ;
+    node *m =  T.insert(n,50) ;
+    T.insert(n,150) ;
     T.insert(n,40) ;
-    T.insert(n,70) ;
-    T.insert(n,65) ;
-    T.insert(n,60)  ;
     T.insert(n,80) ;
+    T.insert(n,30)  ;
+    T.insert(n,70) ;
+    T.insert(n,90) ;
+    T.insert(n,140) ;
+    T.insert(n,180) ;
+    T.insert(n,120) ;
+    T.insert(n,170) ;
+    T.insert(n,190) ;
     T.inorder(n) ;
     cout<<endl ;
     T.postorder(n) ;
     cout<<endl ;
     T.preorder(n) ;
     cout<<endl ;
-    n = T.Delete(n,70) ;
-    T.inorder(n) ;
-    cout<<endl ;
-    T.postorder(n) ;
-    cout<<endl ;
-    T.preorder(n) ;
-    cout<<endl ;
-    /*n = T.Delete(n,90) ;
-    T.inorder(n) ;
-    cout<<endl ;
-    T.postorder(n) ;
-    cout<<endl ;
-    T.preorder(n) ;
-    cout<<endl ;
-    */
+
+    int depth1 = 0 ;
+    T.getdepth(n, 100, depth1);
+    cout<<"depth of 100 is : "<<depth1<<endl ;
+    int depth2 = 0 ;
+    T.getdepth(n, 80, depth2);
+    cout<<"depth of 80 is : "<<depth2<<endl ;
+    int depth3 = 0 ;
+    T.getdepth(n, 50, depth3);
+    cout<<"depth of 50 is : "<<depth3<<endl ;
+    int depth4 = 0 ;
+    T.getdepth(n, 70, depth4);
+    cout<<"depth of 70 is : "<<depth4<<endl ;
+    int depth5 = 0 ;
+    T.getdepth(n, 140, depth5);
+    cout<<"depth of 140 is : "<<depth5<<endl ;
+
+    int depth6 = 0 ;
+    T.getdepth(n, 180, depth6);
+    cout<<"depth of 180 is : "<<depth6<<endl ;
+
+    int depth7 = 0 ;
+    T.getdepth(n, 120, depth7);
+    cout<<"depth of 120 is : "<<depth7<<endl ;
+
+    int depth8 = 0 ;
+    T.getdepth(n, 30, depth8);
+    cout<<"depth of 30 is : "<<depth8<<endl ;
+
+    int depth9 = 0 ;
+    T.getdepth(n, 90, depth9);
+    cout<<"depth of 90 is : "<<depth9<<endl ;
+
+
+    int height = T.heightoftree(n) ;
+    cout<<"height of the tree is : "<<height<<endl ; 
+
+
+    int height_of_node1 = T.getnodeheight(n, 50) ;
+    cout<<"height of node 50 is : "<<height_of_node1<<endl ;
+
+    int height_of_node2 = T.getnodeheight(n, 80) ;
+    cout<<"height of node 80 is : "<<height_of_node2<<endl ;
+
+    int height_of_node3 = T.getnodeheight(n, 100) ;
+    cout<<"height of node 100 is : "<<height_of_node3<<endl ;
+
+    int height_of_node4 = T.getnodeheight(n, 180) ;
+    cout<<"height of node 180 is : "<<height_of_node4<<endl ;
+
+    int height_of_node5 = T.getnodeheight(n, 100) ;
+    cout<<"height of node 100 is : "<<height_of_node5<<endl ;
+
+    int height_of_node6 = T.getnodeheight(n, 170) ;
+    cout<<"height of node 170 is : "<<height_of_node6<<endl ;
+
+    int height_of_node7 = T.getnodeheight(n, 40) ;
+    cout<<"height of node 140 is : "<<height_of_node7<<endl ;
+
+    int height_of_node8 = T.getnodeheight(n, 150) ;
+    cout<<"height of node 150 is : "<<height_of_node8<<endl ;
+
+    int height_of_node9 = T.getnodeheight(n, 90) ;
+    cout<<"height of node 90 is : "<<height_of_node9<<endl ;
+
+    int height_of_node10 = T.getnodeheight(n, 30) ;
+    cout<<"height of node 30 is : "<<height_of_node10<<endl ;
+
+    T.Delete(n, 150) ;
+    T.Delete(n, 120) ;
+    T.Delete(n, 40) ;
+    T.Delete(n, 190) ;
+
+    int depth_1 = 0 ;
+    T.getdepth(n, 100, depth_1);
+    cout<<"depth of 100 is : "<<depth_1<<endl ;
+    int depth_2 = 0 ;
+    T.getdepth(n, 80, depth_2);
+    cout<<"depth of 80 is : "<<depth_2<<endl ;
+    int depth_3 = 0 ;
+    T.getdepth(n, 50, depth_3);
+    cout<<"depth of 50 is : "<<depth_3<<endl ;
+    int depth_4 = 0 ;
+    T.getdepth(n, 70, depth_4);
+    cout<<"depth of 70 is : "<<depth_4<<endl ;
+    int depth_5 = 0 ;
+    T.getdepth(n, 140, depth_5);
+    cout<<"depth of 140 is : "<<depth_5<<endl ;
+
+    int depth_6 = 0 ;
+    T.getdepth(n, 180, depth_6);
+    cout<<"depth of 180 is : "<<depth_6<<endl ;
+
+    int depth_7 = 0 ;
+    T.getdepth(n, 30, depth_7);
+    cout<<"depth of 30 is : "<<depth_7<<endl ;
+
+    int depth_8 = 0 ;
+    T.getdepth(n, 90, depth_8);
+    cout<<"depth of 90 is : "<<depth_8<<endl ;
+
+    int depth_9 = 0 ;
+    T.getdepth(n, 170, depth_9) ;
+    cout<<"depth of 170 is : "<<depth_9<<endl ; 
+
+    int height_1 = T.heightoftree(n) ;
+    cout<<"height of the tree is : "<<height_1<<endl ; 
+
+
+    int height_of_node_1 = T.getnodeheight(n, 50) ;
+    cout<<"height of node 50 is : "<<height_of_node_1<<endl ;
+
+    int height_of_node_2 = T.getnodeheight(n, 80) ;
+    cout<<"height of node 80 is : "<<height_of_node_2<<endl ;
+
+    int height_of_node_3 = T.getnodeheight(n, 100) ;
+    cout<<"height of node 100 is : "<<height_of_node_3<<endl ;
+
+    int height_of_node_4 = T.getnodeheight(n, 180) ;
+    cout<<"height of node 180 is : "<<height_of_node_4<<endl ;
+
+    int height_of_node_6 = T.getnodeheight(n, 170) ;
+    cout<<"height of node 170 is : "<<height_of_node_6<<endl ;
+
+    int height_of_node_7 = T.getnodeheight(n, 30) ;
+    cout<<"height of node 30 is : "<<height_of_node_7<<endl ;
+
+    int height_of_node_8 = T.getnodeheight(n, 140) ;
+    cout<<"height of node 140 is : "<<height_of_node_8<<endl ;
+
+    int height_of_node_9 = T.getnodeheight(n, 90) ;
+    cout<<"height of node 90 is : "<<height_of_node_9<<endl ;
+
+    int height_of_node_10 = T.getnodeheight(n, 70) ;
+    cout<<"height of node 70 is : "<<height_of_node_10<<endl  ;
+
+
+
+ 
     return 0 ;
 }

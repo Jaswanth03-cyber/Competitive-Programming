@@ -23,6 +23,8 @@ void permutations(char s[], int low, int high){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     char arr[] = {'a', 'b', 'c'} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;
     permutations(arr, 0, n-1) ;

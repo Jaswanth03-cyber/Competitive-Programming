@@ -123,18 +123,6 @@ int main(){
 
     Gg.prim() ;
 
-    double num = 3.14478 ;
-    cout<<setprecision(4)<<num<<endl ;
-
-    string str = "jassu" ;
-    str.push_back('n') ;
-    cout<<str<<endl ;
-    vector<string> hi ; 
-    hi.emplace_back() ;
-    hi[0].push_back('j') ;
-    cout<<hi[0]<<endl ;
-    hi[0] = hi[0] + 'n' ;
-    cout<<hi[0]<<endl ;
     
     return 0 ;
 }

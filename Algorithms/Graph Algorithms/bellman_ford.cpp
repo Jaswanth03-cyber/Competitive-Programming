@@ -125,7 +125,7 @@ initialised so we need the constructor and also there are many ways to add an ed
     }
 };
 /*
-this is to identify if any negative cycle running one more loop we have stop after n-1 loops, if there is a 
+this is to identify if any negative cycle running one more loop we have stopped after n-1 loops, if there is a 
 change in the distance for a particular edge that means there is a negative cycle as atmost we can have only n-1 edges
 in the path but we are running another loop and checking if so there is a change that means that there is a negative cycle 
 */

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
-#define MAX_VALUE 1e5 ; 
+#define MAX_VALUE 1e5  
 typedef pair<int, int> pi ; // for priority queue with minimum heap 
 /*
 I guess for directed while adding an edge just add for one add for the source edge but not for the destination

@@ -39,6 +39,7 @@ Now we have to merge the two arrays
         }
         else{
             arr[merge_index] = right_array[right_index] ;
+            right_index++ ;
         }
         merge_index++ ;
     }
@@ -73,6 +74,10 @@ template<typename T>void mergesort(T arr[], int const begin, int const end){
 
 int main(){
 
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+    
     srand(time(0)) ;
     int arr[] = {5,1,4,2,8} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

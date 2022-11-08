@@ -8,14 +8,10 @@ Surprisingly, the optimal solution to the problem does not depend on the
 deadlines at all, but a correct greedy strategy is to simply perform the tasks
 sorted by their durations in increasing order. The reason for this is that if we
 ever perform two tasks one after another such that the first task takes longer
-than the second task, we can obtain a better solution if we swap the tasks. For
-example, consider the following schedule:
+than the second task, we can obtain a better solution if we swap the tasks. 
 
 */
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<tuple>
+#include<bits/stdc++.h>
 using namespace std ;
 
 vector<char> scheduling(int duration[], int deadlines[], char task[], int n){

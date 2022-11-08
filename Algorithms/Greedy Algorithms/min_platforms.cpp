@@ -33,10 +33,7 @@ train can come, so we pop out the departure time of the before train and add the
 anyway before train will departure so no overlaps for next arriving trains we have to check according to this trains departure time
 */
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<queue>
+#include<bits/stdc++.h>
 using namespace std ;
 
 int naive(int arr[], int dep[], int n){

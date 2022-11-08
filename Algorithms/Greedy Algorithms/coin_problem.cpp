@@ -1,7 +1,13 @@
 /*
 Coin Problem Here we are given an array of currencies, we are given an input value, we have to find minimum number of coins 
 which result to the input value, we go with a greedy approach that first check for large coins, here we can use as many coins of
-our wish.
+our wish.currency sets only for sets of this type 
+
+This does not work for all sets it works for only euro coins which is the set below for all others it does not work 
+
+it works for array of this form 
+
+{1k, 2k, 5k...} only k being multiple of 10 
 */
 
 #include<iostream>
@@ -26,7 +32,7 @@ template<typename T> vector<T> min_coins(T currency[], int n, T value){
 
 int main(){
 
-    int currency[] = {1, 2, 5, 10, 20, 50, 100, 500, 1000} ;
+    int currency[] = {1, 2, 5, 10, 20, 50, 100, 200} ;
     int n = sizeof(currency)/sizeof(currency[0]) ;
 
     vector<int> res ;

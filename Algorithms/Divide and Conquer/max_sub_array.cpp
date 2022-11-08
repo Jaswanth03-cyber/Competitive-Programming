@@ -31,8 +31,8 @@ We are solving using Divide and Conquer
 #include<vector>
 using namespace std ;
 
-#define MAX 10e5 ;   // assuming we do not have values in the array that high does not need this though
-#define MIN -10e5 ;  // assuming we do not have values less than this 
+#define MAX 1e5    // assuming we do not have values in the array that high does not need this though
+#define MIN -1e5   // assuming we do not have values less than this 
 
 
 /*

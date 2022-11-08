@@ -32,7 +32,7 @@ template<typename T>void heapify(T arr[], int n, int index){
             smallest = right_index ;
         }
         if(smallest != index){
-            swap(arr[index], arr[smallest]) ;
+            Swap(arr[index], arr[smallest]) ;
             heapify(arr, n, smallest) ;
         }
         return  ;

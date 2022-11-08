@@ -6,12 +6,10 @@ bucketSort(arr[], n)
 3) Sort individual buckets using insertion sort.
 4) Concatenate all sorted buckets.
 Bucket sort is mainly useful when input is uniformly distributed over a range. For example, consider the following problem. 
-Sort a large set of Ting point numbers which are in range from 0.0 to 1.0 and are uniformly distributed across the range.
+Sort a large set of floating point numbers which are in range from 0.0 to 1.0 and are uniformly distributed across the range.
  How do we sort the numbers efficiently?
 */
-#include<iostream>
-#include<vector>
-#include<algorithm>  // for inbuilt sort but we did not use it
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
 template<typename T> void Swap(T &a, T &b){
@@ -73,6 +71,10 @@ template<typename T> void bucketsort(T arr[], int n){
     return ;
 }
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+    
     srand(time(0)) ;
     float arr[] = { 0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434 };
     int n = sizeof(arr) / sizeof(arr[0]);

@@ -1,7 +1,7 @@
-#include<iostream>
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
-#define max 90 ;
+#define max 90 
 
 /*
 Basically what we do is we take a pivot in the given array we will partition the array in such a way that 
@@ -54,6 +54,8 @@ template<typename T>void quicksort(T arr[], int low, int high){
 }
 int main(){
 
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     srand(time(0)) ;
     int arr[] = {5,1,4,2,8} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

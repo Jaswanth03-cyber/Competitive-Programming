@@ -1,7 +1,7 @@
-#include<iostream>
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
-#define max 90 ;
+#define max 90 
 
 /*
 Iterate from arr[1] to arr[N] over the array. 
@@ -73,7 +73,7 @@ template<typename T> void insertionsort(T arr[], int n){
         // current position
         while (j >= 0 && arr[j] > key){
             arr[j + 1] = arr[j];
-            j = j - 1;
+            j-- ;
         }
         arr[j + 1] = key;
     }
@@ -81,6 +81,9 @@ template<typename T> void insertionsort(T arr[], int n){
 }
 int main(){
 
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+    
     srand(time(0)) ;
     int arr[] = {5,1,4,2,8} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

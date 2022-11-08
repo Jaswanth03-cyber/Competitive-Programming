@@ -1,7 +1,7 @@
-#include<iostream>
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
-#define max 90 ;
+#define max 90 
 /*
 Basically what we do is we take a pivot in the given array we will partition the array in such a way that 
 pivot is kept at the right position whereas all the elements to the left of pivot are less than the pivot and that to the 

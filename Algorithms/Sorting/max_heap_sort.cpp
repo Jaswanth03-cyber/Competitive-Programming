@@ -1,5 +1,5 @@
-#include<iostream>
-#define max 90 ;
+#include<bits/stdc++.h>
+#define max 90 
 using namespace std ;
 
 /*this will give us the sorted order in ascending order 
@@ -50,6 +50,10 @@ template<typename T> void heapsort(T arr[], int n){
     return ;
 }
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+    
     srand(time(0)) ;
     int arr[] = {5,1,4,2,8} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

@@ -57,6 +57,9 @@ we place it there and for array before that and array after that we call the fun
 }
 int main(){
 
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+
     srand(time(0)) ;
     int arr[] = {5,1,4,2,8} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

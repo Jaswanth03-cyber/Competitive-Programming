@@ -1,7 +1,7 @@
-#include<iostream>
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
-#define max 90 ;
+#define max 90 
 // lets sort in ascending order
 template<typename T> void Swap(T &a, T &b){   // be carefull std has inbuilt swap function 
     T temp ;
@@ -53,6 +53,9 @@ No two elements are swapped in the sense array is in sorted order
     
 }
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
 
     srand(time(0)) ;
     int arr[] = {5,1,4,2,8} ;

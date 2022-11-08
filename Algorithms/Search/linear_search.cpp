@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
 
@@ -12,9 +12,15 @@ template<typename T> int linearsearch(T arr[], int n, int a){
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+
     int arr[] = {5,4,3,2,1,6,7,8,9} ;
     int a = 3 ;
     int index = linearsearch<int>(arr, 9, a) ;
     cout<<"The element "<<a<<" is present in the array at the index "<<index<<endl ;
+
     return 0 ;
+    
 }

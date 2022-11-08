@@ -10,11 +10,9 @@ must be present between i/2 and i  (Why i/2? because we could not find a greater
 
 */
 
-#include<iostream>
-#include<cmath>
-#include<time.h>
+#include<bits/stdc++.h>
 using namespace std ;
-#define max 90 ;
+#define max 90 
 
 template<typename T> void Swap(T &a, T &b){   // be carefull std has inbuilt swap function 
     T temp ;
@@ -68,6 +66,10 @@ template<typename T> int exponentialsearch(T arr[], int const n, int const x){
 }
 
 int main(){
+    
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+
     int arr[9] ;
     int a = 0 ;
     for(int i = 0 ; i < 9 ; i++){

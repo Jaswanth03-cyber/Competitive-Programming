@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 #include<time.h>
 using namespace std ;
 #define max 90 ;
@@ -46,6 +46,10 @@ template<typename T> void display(T arr[], int n){
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+    
     int arr[9] ;
     int a = 0 ;
     for(int i = 0 ; i < 9 ; i++){

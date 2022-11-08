@@ -3,6 +3,9 @@ using namespace std ;
 typedef pair<int, char> pi ;
 const char dollar = '$' ;
 
+
+// Have to be updated not updated one 
+
 void add(map<char, vector<int>> &result, char a, vector<int> &code){
     result.emplace(a, code) ;
     //code.clear() ;

@@ -19,9 +19,7 @@ then DP[i][j] state will be same as DP[i-1][j] but if we fill the weight, DP[i][
 to fill the current state.   
 */
 
-#include<iostream>
-#include<vector>
-#include<cmath>
+#include<bits/stdc++.h>
 using namespace std ;
 
 
@@ -63,7 +61,7 @@ int dynamic(int val[], int weights[], int n, int sum){
     }
 
     int *new_weight ;
-    new_weight = new int[sum + 1] ;    // I have introduced these so that no confusion as we generally write [w1,...wn]
+    new_weight = new int[n + 1] ;    // I have introduced these so that no confusion as we generally write [w1,...wn]
     new_weight[0] = -1 ;
     for(int i = 1; i <= sum ; i++){
         new_weight[i] = weights[i-1] ;
@@ -111,8 +109,7 @@ int dynamic_vector(int val[], int weights[], int n, int sum){
     vector<vector<int>> maximum_sum(n + 1, vector<int>(sum + 1)) ;                     // basically 2D vector n+1 rows and sum +1 columns
 
     for(int i = 0; i <= n; i++){
-        for(int j = 0; j <= sum ; j++)
-        {
+        for(int j = 0; j <= sum ; j++){
             if ( (i == 0) || (j == 0) ){
                 maximum_sum[i][j] = 0;
             }
@@ -135,6 +132,9 @@ n is the size of the values/weights array.
 */
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
 
     int val[] = { 60, 100, 120 };
     int weight[] = { 10, 20, 30 };

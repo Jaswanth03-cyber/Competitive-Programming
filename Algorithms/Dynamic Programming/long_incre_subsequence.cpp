@@ -31,8 +31,7 @@ means that the sublength only contains array[k].
 */
 
 
-#include<iostream>
-#include<cmath>
+#include<bits/stdc++.h>
 using namespace std ;
 
 int find(int arr[], int n, int position){
@@ -62,6 +61,9 @@ int find(int arr[], int n, int position){
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     
     int arr[] = {6, 2, 5, 1, 7, 4, 8, 3} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

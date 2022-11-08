@@ -14,8 +14,7 @@ first k−1 weights, and if we do not use wk, the remaining task is to form the 
 x using the first k −1 weights.
 */
 
-#include<iostream>
-#include<cmath>
+#include<bits/stdc++.h>
 using namespace std ;
 
 /*arr is the n weights [w1, w2, w3, ... wn] to avoid confusion I have created a new array in the function as indexes

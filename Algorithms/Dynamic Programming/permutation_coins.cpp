@@ -13,7 +13,7 @@ and the recursive formula is
 solve(x) = solve(x−1) + solve(x−3)+ solve(x−4).
 */
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std ;
 
 int find(int arr[], int n, int value){
@@ -41,10 +41,12 @@ int find(int arr[], int n, int value){
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     int arr[] = {1, 3, 4} ;
 
     int n = sizeof(arr)/sizeof(arr[0]) ;
-
     cout<<find(arr, n, 7)<<endl ;
     return 0 ; 
 }

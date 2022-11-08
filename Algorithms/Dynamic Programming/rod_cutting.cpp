@@ -10,9 +10,9 @@ dividing into subproblems if we divide the rod into two parts for total to have 
 parts too thats the optimal substructure 
 */
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std ;
-#define MIN -1e5 ;
+#define MIN -1e5 
 
 void print(int arr[], int n){
 
@@ -89,6 +89,9 @@ here size gives the length of the first rod, there is no need to further partiti
 */
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
 
     int price[] = {1, 5, 8, 9, 10, 17, 17, 20, 24, 30} ;
     int n = sizeof(price)/sizeof(price[0]) ;

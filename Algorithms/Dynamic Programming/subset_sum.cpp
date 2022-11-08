@@ -1,5 +1,5 @@
 /*
-Given an array of n positive integers and an integer say b, we have to find if there is a  subset in the array of  those positive 
+Given an array of n positive integers and an integer say b, we have to find if there is a  subset in the array of those positive 
 integers whose sum is b 
 
 Naive approach:
@@ -13,7 +13,7 @@ sub problems {1, ... n} and {0, ... sum}
 
 */
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std ;
 
 bool find(int arr[], int n, int sum){
@@ -79,6 +79,9 @@ if none are true then 0 so both are same
 */  
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     int set[] = { 3, 34, 4, 12, 5, 2 }; 
     int sum = 9; 
     int n = sizeof(set) / sizeof(set[0]); 

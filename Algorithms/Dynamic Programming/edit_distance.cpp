@@ -16,10 +16,7 @@ x[0...a] and y[0...b]. Thus, using this function, the edit distance between x an
 y equals distance(n−1,m−1).
 */
 
-#include<iostream>
-#include<vector>
-#include<string>
-#include<cmath>
+#include<bits/atdc++.h>
 using namespace std ;
 
 int edit_distance(string a, string b){
@@ -89,6 +86,9 @@ then modify one of the strings lets say here x .
 distance(a,b) = min(dis1, dis2, dis3)
 */
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
 
     string a = "love" ;
     string b = "movie" ;

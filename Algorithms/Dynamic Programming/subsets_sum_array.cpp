@@ -3,10 +3,7 @@ Given an array of n positive integers we have to print all the check subset sums
 elements of the array is not too big 
 */
 
-#include<iostream>
-#include<cmath>
-#include<vector> 
-#include<cstring>
+#include<bits/stdc++.h>
 using namespace std ;
 
 vector<int> subsetsum(int arr[], int n){
@@ -89,6 +86,9 @@ sum is j now we are adding one element to the subset also to the sum so its true
 */
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
 
     int arr[] = {2, 3, 4, 5, 6} ;
     int n = sizeof(arr)/sizeof(arr[0]) ;

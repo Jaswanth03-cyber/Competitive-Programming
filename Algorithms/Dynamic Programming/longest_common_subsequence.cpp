@@ -1,5 +1,20 @@
-#include<iostream>
-#include<string>
+/*
+We formalize this last notion of similarity as the longest-common-subsequence
+problem. A subsequence of a given sequence is just the given sequence with zero or
+more elements left out. Formally, given a sequence X  = ( x 1, x 2...x m ), another
+sequence Z =  (z1, z2...zi) is a subsequence of X if there exists a strictly
+increasing sequence h = (i1, i 2,...,ik) of indices of X such that for all j = (1, 2...k)
+we have xij =  zj . For example, Z = (B, C, D, B) is a subsequence of X =
+A, B, C, B, D, A, B with corresponding index sequence (2,3,5,7)
+
+
+1. If xm = yn , then zk = xm = yn and Zk-1 is an LCS of Xm-1 and Yn-1 .
+2. If xm != yn , then zk != x m implies that Z is an LCS of Xm-1 and Yn .
+3. If xm != yn , then zk != y n implies that Z is an LCS of Xm and Yn-1 .
+
+so if xm != yn we will be having two cases case 2 and 3 we have to choose longest sequence of these two
+*/
+#include<bits/stdc++.h>
 using namespace std ;
 
 void print(char **arr, string a, int i, int j){
@@ -8,7 +23,7 @@ void print(char **arr, string a, int i, int j){
     }
     if(arr[i][j] == 'd'){
         print(arr, a, i-1, j-1) ;
-        cout<<a[i]<<" " ; 
+        cout<<a[i]<< ; 
     }
     else if(arr[i][j] == 'u'){
         print(arr, a, i-1, j) ;
@@ -65,12 +80,20 @@ void subsequence(string a, string b){
         }
     }
 
-
     print(direction, string1, length1, length2) ;
     cout<<endl ;
 }
 
+/*
+Here I am storing extra char so that when we along the matrix of Xm and Yn which element to take we start from the bottom 
+that is last element [m-1][n-1] d implies diagnol movement u implies up and l implies left 
+*/
+
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
+    
     string a = "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA" ;
     string b = "GTCGTTCGGAATGCCGTTGCTCTGTAAA" ;
 

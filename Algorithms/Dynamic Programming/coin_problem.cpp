@@ -1,5 +1,5 @@
 /*
-Given a currency set and a value of amount is given we have to find min_coins_reqimum number of coins needed whose total sum results in the 
+Given a currency set and a value of amount is given we have to find min_coins_req minimum number of coins needed whose total sum results in the 
 given value and the coins we choose should be in the currency set given 
 
 idea :
@@ -16,11 +16,10 @@ solve(x) = min_coins_req(solve(x-a[0]), solve(x-a[1]), solve(x - a[2]), solve(x 
 of the currency array(a) given 
 */
 
-#include<iostream>
-#include<cmath>
+#include<bits/stdc++.h>
 using namespace std ;
 
-#define MIN 1e5 ;
+#define MIN 1e5 
 
 int min_coins(int arr[], int n, int value){
 

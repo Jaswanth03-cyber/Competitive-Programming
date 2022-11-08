@@ -19,8 +19,7 @@ We can recursively calculate the sums as follows:
 sum(y, x) = max(sum(y, x−1),sum(y−1, x))+value[y][x]
 */
 
-#include<iostream>
-#include<cmath>
+#include<bits/stdc++.h>
 using namespace std ;
 
 int find_max(int value[][5], int n){
@@ -60,6 +59,9 @@ int find_max(int value[][5], int n){
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
 
     int arr[][5] = {{3, 7, 9, 2, 7}, 
                     {9, 8, 3, 5, 5}, 

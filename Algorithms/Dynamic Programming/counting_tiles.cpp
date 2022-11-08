@@ -7,7 +7,7 @@ Given a floor of size n x m and tiles of size 1 x m. The problem is to count the
             | count(n-1) + count(n-m), m < n
 */
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std ;
 
 int tiles(int n, int m){
@@ -32,6 +32,8 @@ int tiles(int n, int m){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     int n = 7 ;
     int m = 4 ;
     cout<<tiles(n, m)<<endl ;

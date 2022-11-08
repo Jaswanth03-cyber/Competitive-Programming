@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std ;
 
 
@@ -36,6 +36,9 @@ int binomial_coefficient(int n, int k){         // we need nck
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL) ;
     int n = 4 ;
     int k = 2 ;
     int final = binomial_coefficient(n, k) ;

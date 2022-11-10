@@ -96,7 +96,7 @@ class binarysearchtree{
             return result ;
         }
         queue<node*> pq ; 
-        reult.push_back(n->data) ;
+        result.push_back(n->data) ;
         pq.push(n) ;
 
         while(!pq.empty()){
@@ -305,7 +305,7 @@ int main(){
     T.getdepth(n, 70, depth4);
     cout<<"depth of 70 is : "<<depth4<<endl ;
     int depth5 = 0 ;
-    T.getdepth(n, 140, depth5 ; 
+    T.getdepth(n, 140, depth5) ; 
     cout<<"depth of 140 is : "<<depth5<<endl ;
 
     int depth6 = 0 ;

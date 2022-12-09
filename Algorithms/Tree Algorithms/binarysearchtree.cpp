@@ -9,6 +9,7 @@ BFS of a tree starting at the node will give us a level order traversal of the t
 implement right, left level order traversals and also implement a function which returns a pointer to the
 root of a tree which is a mirror image of the given tree
 
+Number of binary search trees of n nodes (2n)! / n! * (n+1)!
 */
 struct node{
     int data ;
@@ -72,6 +73,11 @@ class binarysearchtree{
         inorder(n->right) ;
     }
 // pre order traversal of the tree (root,left,right)
+/*
+pre order traversal of a binary search tree will be unique so a pre order traversal will result in a unique binary search tree 
+
+pre order of a binary tree will be unique if u place a constant value in the place of missing nodes to compare two trees whether same or not
+*/
     void preorder(node *n){
         if(n == nullptr){
             return ;
@@ -79,6 +85,19 @@ class binarysearchtree{
         cout<<n->data<<" " ;
         preorder(n->left) ;
         preorder(n->right) ;
+    }
+
+/*
+function two compare two given binary trees whether they have same structure or not 
+*/
+    void preorder_compare(node *n, vector<int> &ans){
+        if(n == nullptr){
+            ans.push_back(0) ;
+            return ;
+        }
+        ans.push_back(n->data) ;
+        preorder_compare(n->left, ans) ;
+        preorder_compare(n->right, ans) ;
     }
 // post order traversal of the tree (left,right,root)
     void postorder(node *n){
@@ -90,6 +109,7 @@ class binarysearchtree{
         cout<<n->data<<" " ;
     }
 
+// left view level order for clarification see geeks for geeks 
     vector<int> left_view_level_order(node *n){
         vector<int> result ;
         if(n == nullptr){
@@ -118,6 +138,137 @@ class binarysearchtree{
         }
         return result ;
     }
+
+// right view level order traversal of a tree 
+
+    vector<int> right_view_level_order(node *n){
+        vector<int> result ;
+        if(n == nullptr){
+            return result ;
+        }
+        queue<node*> pq ; 
+        result.push_back(n->data) ;
+        pq.push(n) ;
+
+        while(!pq.empty()){
+            int n = pq.size() ;
+
+            for(int i = 1 ; i <= n ; i++){
+                node* top = pq.front() ;
+                pq.pop() ;
+                if(i == n){
+                    result.push_back(top->data) ;
+                }
+                if(top->left != nullptr){
+                    pq.push(top->left) ;
+                }
+                if(top->right != nullptr){
+                    pq.push(top->right) ;
+                }
+            }
+        }
+        return result ;
+    }
+// level order array of a tree this is nothing but storing the nodes if we do bfs starting from root 
+
+    vector<int> level_order_view(node *root){
+        vector<int> ans ;
+        queue<node*> pq ;
+        pq.push(root) ;
+        
+        while(!pq.empty()){
+            int n = pq.size() ;
+            for(int i = 1; i <= n ; i++){
+                node *curr = pq.front() ;
+                pq.pop() ;
+                ans.push_back(curr->data) ;
+                if(curr->left != nullptr){
+                    pq.push(curr->left) ;
+                }
+                if(curr->right != nullptr){
+                    pq.push(curr->right) ;
+                }
+            }
+        }
+        return ans ;
+    }
+// function that turns this tree into a tree which is mirror of original one 
+
+    void *mirror_image(node *root){
+        if (root == nullptr){
+            return ;
+        }
+ 
+        queue<node*> q;
+        q.push(root);
+ 
+    // Do BFS. While doing BFS, keep swapping
+    // left and right children
+        while (!q.empty()) {
+        // pop top node from queue
+            node* curr = q.front();
+            q.pop();
+
+        // swap left child with right child
+            swap(curr->left, curr->right);
+
+        // swap is a function which swaps two variable values irrespective of the data type 
+ 
+        // push left and right children
+            if (curr->left){
+                q.push(curr->left);
+            }
+            if (curr->right){
+                q.push(curr->right);
+            }
+        }
+    }
+
+// if given a value of a node we will get the ancestors of this node also give a vector as a parameter to store all those values
+// and always first parameter should be root node itself in the begining, second parameter ancestors of that value node we require ans vector to store the ancestor values 
+// we can change this function to calculate the sum of ancestors values or find the maximum of all the ancestors etc... 
+    bool ancestors(node *root, int value, vector<int> &ans){
+        if(root == nullptr){
+            return false ;
+        }
+
+        if(root->data == value){
+            return true ;
+        }
+        if((ancestors(root->right, value, ans)) || (ancestors(root->left, value, ans))){
+            ans.push_back(root->data) ;
+            return true ;
+        }
+        return false ;
+    }
+
+// u could get descendants of a node given as parameter 
+    vector<int> descendants(node *n){
+        vector<int> ans ;
+
+        queue<node*> pq ;
+        pq.push(n) ;
+
+        while(!pq.empty()){
+            int n = pq.size() ;
+
+            for(int i = 1 ; i <= n ; i++){
+                node *curr = pq.front() ;
+                pq.pop() ;
+
+                ans.push_back(curr->data) ;
+                if(curr->left != nullptr){
+                    pq.push(curr->left) ;
+                }
+                if(curr->right != nullptr){
+                    pq.push(curr->right) ;
+                }
+            }
+        }
+        return ans ;
+    }
+
+
 // searching for a node with a given value 
     node* search(node* n, int a){
         if(n->data == a){
@@ -247,6 +398,8 @@ Height of the node can be calculated simillarly like height of a tree only thing
 
 /*
 Diameter is nothing but the maximum length of a path between any two nodes in the tree 
+
+this is wrong implementation as longest path need not always pass through root of the tree 
 */
     int diameteroftree(node *n){
         int diameter_tree = 0 ;

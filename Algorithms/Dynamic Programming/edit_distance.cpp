@@ -16,7 +16,7 @@ x[0...a] and y[0...b]. Thus, using this function, the edit distance between x an
 y equals distance(n−1,m−1).
 */
 
-#include<bits/atdc++.h>
+#include<bits/stdc++.h>
 using namespace std ;
 
 int edit_distance(string a, string b){

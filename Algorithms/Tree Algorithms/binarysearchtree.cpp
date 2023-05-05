@@ -268,6 +268,48 @@ function two compare two given binary trees whether they have same structure or 
         return ans ;
     }
 
+// sum of the descendants of a given node 
+    int sumofdescendants(node *n){
+        if(n == nullptr){
+            return 0 ;
+        }
+        int total = sumofdescendants(root->left) + sumofdescendants(root->right) + root->data ;
+        return total ;
+    }
+
+// sum of node values from root to leaf of all the leaves inputs give sum as 0 and an empty integer vector 
+
+    void bfs(node *root, int sum, vector<int> &ans){
+        if(root == nullptr){
+            return ;
+        }
+        sum = sum + root->data ;
+
+        if((root->left == nullptr) && (root->right == nullptr)){
+            ans.push_back(sum) ;
+        }
+        bfs(root->left, sum, ans) ;
+        bfs(root->right, sum, ans) ;
+    }
+// to check whether a tree is symmetric or not that is it is mirror image of itself 
+bool isMirror(node* root1, node* root2){
+    if (root1 == nullptr && root2 == nullptr){
+        return true;
+    }
+    if ((root1 != nullptr) && (root2 != nullptr) && (root1->data == root2->data)){
+        if((isMirror(root1->left, root2->right)) && (isMirror(root1->right, root2->left))){
+            return true ;
+        }
+    }
+    return false;
+}
+
+bool issymmetric(node *root){
+    bool result = false ;
+
+    result = isMirror(root, root) ;
+    return result ;
+}
 
 // searching for a node with a given value 
     node* search(node* n, int a){

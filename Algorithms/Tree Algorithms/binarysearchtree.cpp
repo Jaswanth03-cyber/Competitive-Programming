@@ -227,6 +227,7 @@ function two compare two given binary trees whether they have same structure or 
 // if given a value of a node we will get the ancestors of this node also give a vector as a parameter to store all those values
 // and always first parameter should be root node itself in the begining, second parameter ancestors of that value node we require ans vector to store the ancestor values 
 // we can change this function to calculate the sum of ancestors values or find the maximum of all the ancestors etc... 
+    //this does not work for binary tree as duplicate values might be possible for test case check neetcode problem
     bool ancestors(node *root, int value, vector<int> &ans){
         if(root == nullptr){
             return false ;

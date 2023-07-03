@@ -258,6 +258,22 @@ void BST::in_order(TreeNode* node,vector<int> &arr){
     return ;
 }
 
+// void BST::left_traversal(TreeNode* node,vector<int> &arr){
+//     if(node==nullptr)return ;
+//     left_traversal(node->left,arr) ;
+//     arr.push_back(node->val);
+//     left_traversal(node->right,arr) ;
+//     return ;
+// }
+
+// void BST::right_traversal(TreeNode* node,vector<int> &arr){
+//     if(node==nullptr)return ;
+//     right_traversal(node->right,arr) ;
+//     arr.push_back(node->val) ;
+//     right_traversal(node->left,arr) ;
+//     return ;
+// }
+
 vector<int> BST::left_level_order(TreeNode* node){
     vector<int> arr ;
     if(node == nullptr){
@@ -388,6 +404,46 @@ bool BST::check_symetry(TreeNode* node){
     bool bool_val = is_mirror_image(node->left,node->right) ;
     return bool_val ;
 }
+
+// vector<int> BST::left_level_order(TreeNode* node){
+//     vector<int> arr ;
+//     if(node==nullptr){
+//         return arr ;
+//     }
+//     left_traversal(node,arr) ;
+//     set<int> s ;
+//     vector<int> left_nodes ;
+//     for(int i=0;i<arr.size();i++){
+//         TreeNode* temp = search(arr[i],this->root) ;
+//         int h = depth_iterative(temp) ; ;
+//         if(s.count(h)==0){
+//             s.insert(h) ;
+//             // cout<<arr[i]<<" "<<h<<endl ;
+//             left_nodes.push_back(arr[i]) ;
+//         }
+//     }
+//     return left_nodes ;
+// }
+
+// vector<int> BST::right_level_order(TreeNode* node){
+//     vector<int> arr ;
+//     if(node==nullptr){
+//         return arr ;
+//     }
+//     right_traversal(node,arr) ;
+//     set<int> s ;
+//     vector<int> right_nodes ;
+//     for(int i=0;i<arr.size();i++){
+//         TreeNode* temp = search(arr[i],this->root) ;
+//         int h = depth_iterative(temp) ;
+//         if(s.count(h)==0){
+//             s.insert(h) ;
+//             // cout<<arr[i]<<" "<<h<<endl ;
+//             right_nodes.push_back(arr[i]) ;
+//         }
+//     }
+//     return right_nodes ;
+// }
 
 int main(){
     ios_base::sync_with_stdio(false);

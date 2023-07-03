@@ -227,7 +227,6 @@ function two compare two given binary trees whether they have same structure or 
 // if given a value of a node we will get the ancestors of this node also give a vector as a parameter to store all those values
 // and always first parameter should be root node itself in the begining, second parameter ancestors of that value node we require ans vector to store the ancestor values 
 // we can change this function to calculate the sum of ancestors values or find the maximum of all the ancestors etc... 
-    //this does not work for binary tree as duplicate values might be possible for test case check neetcode problem
     bool ancestors(node *root, int value, vector<int> &ans){
         if(root == nullptr){
             return false ;
@@ -327,6 +326,18 @@ bool issymmetric(node *root){
         return nullptr ;
     }
 // In order successor of a given node node with the min value of all the nodes whose keys are greater than the given key
+/*
+Here these both functions do not give in order predecessor/ in order sucessor for a given leaf node but actually there exists
+both predecessor and successor according to the definiton 
+
+so one way we can do this is by taking inorder traversal of the tree and and take the val just before the value for which we need predecessor
+and the next immediate value for the in order successor and have a search for those two values from root which gives pointers to those nodes
+which are predecessor and successor for that leaf node
+Note pointers which we get are copy of the original pointers 
+
+In Delete function we used in order successor and predecesor as there we calculate only for non leaf nodes only 
+only in non leaf nodes these two functions which I wrote will be useful.
+*/
     node* inorder_sucessor(node *n){
         node *current = n->right ;
         while(current->left != nullptr && current != nullptr){
@@ -342,6 +353,19 @@ bool issymmetric(node *root){
         return current ;
     }
 // deleting a node contains a total of three cases 
+/*
+Note while deleting TreeNode* node = search(root, val) ;
+this node will get another copy of that node which u are searching if u delete I mean if u write the following in the code 
+delete node ; // or node = nullptr ; both are same 
+then it means it will delete that copy node only not the original node. 
+so thats why in delete we did not do this 
+
+TreeNode* node = search(root, val) ;
+delete node ;  
+this is an error we can not do that it does not delete original node so we use this way 
+
+write in on a pen and paper for a tree and check .
+*/
     node* Delete(node *n, int a){
         if(n == nullptr){
             return n ;

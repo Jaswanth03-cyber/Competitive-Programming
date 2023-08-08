@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
+/*
+https://leetcode.com/problems/happy-number/
+*/
 class Solution {
 public:
     int squares(int n){
@@ -12,17 +15,15 @@ public:
         return total ;
     }
     bool isHappy(int n) {
+        if(n == 1){
+            return true ;
+        }
         set<int> st ;
-        int i = 0 ; 
-        while((i < 1000) && (n < 1)){
-            if(st.count(n) == 1){
-                return false ;
-            }
+        while((n > 1) && (st.count(n) == 0)){
             st.insert(n) ;
             n = squares(n) ;
-            i++ ;
         }
-        return true ;
+        return n == 1 || st.count(n) == 0 ;
     }
 };
 

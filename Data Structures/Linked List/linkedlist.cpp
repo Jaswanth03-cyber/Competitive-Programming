@@ -36,7 +36,7 @@ class linkedlist{
         node *n = this->head ;
         bool found = false ;
         while(n != nullptr){
-            if(n->next == p){
+            if(n->next->data == p->data){
                 n->next = p->next ;
                 delete p ;
                 found = true ;
@@ -84,15 +84,6 @@ int main(){
     node *n = new node ;
     node *m = new node ;
     m->data = 10 ;
-    //int a ;
-    //cin>>a ;
-    //n = l.search(a) ;
-    //if(n == nullptr){
-        //cout<<"there is no node whose value is "<<a<<endl ;
-    //}
-    //else{
-      //  cout<<"value found "<<n->data<<endl ;
-    //}
     l.delete_by_node(m) ;
     l.print() ;
     node *y = l.search(3) ;

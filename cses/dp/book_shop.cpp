@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
+#include <chrono>
+using namespace std::chrono ;
+
 int knapsack(vector<int> &price_books, vector<int> &pages_books, int max_cost, int n){
 
     vector<vector<int>> max_pages ;
@@ -66,7 +69,16 @@ int main(){
         pages_book.push_back(l) ;
     }
 
+    auto start = high_resolution_clock::now();
     int result = knapsack(price_book, pages_book, max_cost, n) ;
     cout<<result<<endl ;
+
+    auto stop = high_resolution_clock::now();
+
+    auto duration = duration_cast<microseconds>(stop - start);
+    
+    // cout << max_pricePages<<endl ;
+
+    cout << duration.count() << endl;
     return 0 ;
 }

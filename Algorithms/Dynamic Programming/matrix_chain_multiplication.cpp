@@ -4,14 +4,14 @@
 using namespace std ;
 #define MAX 1e7 
 
-void print(int **s, int i, int j){
+void print(vector<vector<int>> &index, int i, int j){
     if(i == j){
         cout<<"A["<<i<<"]" ;
     }
     else{
         cout<<"(" ;
-        print(s, i, s[i-1][j-1]) ;
-        print(s, s[i-1][j-1] +1, j) ;
+        print(index, i, index[i-1][j-1]) ;
+        print(index, index[i-1][j-1] +1, j) ;
         cout<<")" ;
     }
 }
@@ -20,22 +20,14 @@ void matrix_chain_multiplication(int size[], int m){
 
     int n = m - 1 ;
 
-    int **cost ;
-    cost = new int*[n + 1] ;
-    for(int i = 0 ; i <=n ; i++){
-        cost[i] = new int[n + 1] ;
-    }
+    vector<vector<int>> cost(n+1, vector<int>(n+1, 0)) ;
 
 
     for(int i = 0 ; i <= n ; i++){
         cost[i][i] = 0 ;
     }
 
-    int **index ;
-    index = new int*[n] ;
-    for(int i = 0 ; i < n ; i++){
-        index[i] = new int[n] ;
-    }
+    vector<vector<int>> index(n, vector<int>(n, 0)) ;
 
     for(int i = 0 ; i < n ; i++){
         index[n-1][i] = 0 ;
@@ -66,7 +58,7 @@ void matrix_chain_multiplication(int size[], int m){
         }
     }
 
-    print(index,1, 6) ;
+    print(index,1, m-1) ;
     cout<<endl ;
 }
 

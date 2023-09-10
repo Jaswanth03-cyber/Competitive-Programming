@@ -26,9 +26,7 @@ int min_coins(int arr[], int n, int value){
     if(value < 0){
         return -1 ;
     }
-
-    int *min_coins_req ;
-    min_coins_req = new int[value] ;
+    vector<int> min_coins_req(value, 0) ;
 
     min_coins_req[0] = 0 ;
 
@@ -46,8 +44,6 @@ int min_coins(int arr[], int n, int value){
     }
 
     int result = min_coins_req[value-1] ;
-
-    delete[] min_coins_req ;
 
     return result ;
 }

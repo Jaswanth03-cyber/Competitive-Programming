@@ -27,10 +27,7 @@ int edit_distance(string a, string b){
 
     int m = b.size() ;
 
-    distance = new int*[n + 1] ;
-    for(int i = 0 ; i <= n ; i++){
-        distance[i] = new int[m + 1] ;
-    }
+    vector<vector<int>> distance(n+1, vector<int>(m+1, 0)) ;
 
     for(int i = 0 ; i <= n ; i++){
         distance[i][0] = i ;
@@ -64,11 +61,6 @@ Here I am adding a space character because to avoid indexing problem later in th
     }
 
     int result = distance[n][m] ; 
-
-    for(int i = 0 ; i <= n ; i++){
-        delete[] distance[i] ; 
-    }
-    delete[] distance ;
 
     return result ;
 }

@@ -3,11 +3,7 @@ using namespace std ;
 
 
 int binomial_coefficient(int n, int k){         // we need nck 
-    int **coefficients ;
-    coefficients = new int*[n+1] ;
-    for(int i = 0 ; i <=n ; i++){
-        coefficients[i] = new int[n+1] ;
-    }
+    vector<vector<int>> coefficients(n+1, vector<int>(n+1, 0)) ;
     for(int i = 0 ; i <=n ; i++){
         coefficients[i][0] = 1 ; 
     }
@@ -28,10 +24,6 @@ int binomial_coefficient(int n, int k){         // we need nck
         }
     }
     int result =  coefficients[n][k] ;
-    for(int i = 0 ; i <=n ; i++){
-        delete[] coefficients[i] ;
-    }
-    delete[] coefficients ;
     return result ;
 }
 

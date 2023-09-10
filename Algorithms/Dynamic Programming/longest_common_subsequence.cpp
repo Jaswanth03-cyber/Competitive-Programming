@@ -9,8 +9,8 @@ A, B, C, B, D, A, B with corresponding index sequence (2,3,5,7)
 
 
 1. If xm = yn , then zk = xm = yn and Zk-1 is an LCS of Xm-1 and Yn-1 .
-2. If xm != yn , then zk != x m implies that Z is an LCS of Xm-1 and Yn .
-3. If xm != yn , then zk != y n implies that Z is an LCS of Xm and Yn-1 .
+2. If xm != yn , then zk != x m implies that Zk is an LCS of Xm-1 and Yn .
+3. If xm != yn , then zk != y n implies that Zk is an LCS of Xm and Yn-1 .
 
 so if xm != yn we will be having two cases case 2 and 3 we have to choose longest sequence of these two
 */

@@ -33,6 +33,57 @@ means that the sublength only contains array[k].
 
 #include<bits/stdc++.h>
 using namespace std ;
+/*
+This approach reduces the inner loop time
+so here if we observe in the approach either the length(i) increases by one or no increase
+
+so lets take a vector which contains the longest increasing sequence and our answer will just be the size of this vector 
+now I have pushed arr[0], now I check if nums[i] is greater than the last added element in the vector then we add nums[i], 
+if in case it is not greater than out increasing subsequence  breaks, so we find an index in the subsequence where 
+element at that index is >= nums[i] here in general in lower_bound if that element is present then that iterator is given but if not next immediate 
+element that is greater than the element that is given as argument will be resulted. we change the value of that index 
+
+lets have an example 
+
+50,3,10,7,40, 80 
+first 50 is added now 3 is less than 50 so int lower_bound we get index where 50 is present as 3 is not in the subsequence(and infact that arr[i] will never be there think why)
+now 10 > 3 added, now 7 is < 10 so we find lower_bound(7) here we get 10 we replace it by 7... next 40 next 80 and so on...
+
+lets have an example 
+50, 3, 2, 7, 40, 80
+
+50 
+3 replaces 50 
+2 replaces 3 
+2,7,40, 80 
+so above is the subsequence this results in 4 
+
+why to replace at all we are doing it because to increase the size of the subsequence, here if small elements are there next size remains same,
+if big elements are there size increases(chance) proof ??
+
+Basically when a number is being replaced by a number in the final sequence we are not having the number that is being replaced as subsequence we need not have continous array
+*/
+int solve(vector<int> &arr){
+    int ans = 0 ;
+    vector<int> subsequence ;
+
+    int n = arr.size() ;
+    subsequence.push_back(arr[0]) ;
+    int top = 0 ;
+    int index = 0 ;
+    for(int i = 1 ; i < n ; i++){
+        top = subsequence.back() ;
+        if(arr[i] > top){
+            subsequence.push_back(arr[i]) ;
+        }
+        else{
+            index = lower_bound(subsequence.begin(), subsequence.end(), arr[i]) - subsequence.begin() ;
+            subsequence[index] = arr[i] ;
+        }
+    }
+    ans = subsequence.size() ;
+    return ans ;
+}
 
 int find(int arr[], int n, int position){
 

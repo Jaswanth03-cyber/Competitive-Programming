@@ -2,8 +2,7 @@
 using namespace std ;
 
 void fibonacci(int n){
-    int *F ;
-    F = new int[n+1] ;
+    vector<int> F(n+1,0) ;
     F[0] = 1 ;
     F[1] = 1 ;
     for(int i = 2 ; i <= n ; i++){
@@ -14,7 +13,6 @@ void fibonacci(int n){
         cout<<F[i]<<" " ;
     }
     cout<<endl ;
-    delete[] F ;
     return ;
 }
 

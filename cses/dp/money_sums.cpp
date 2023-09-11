@@ -1,77 +1,96 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std ;
 
 
-vector<int> solve(vector<int> &coins, int n){
-
-    vector<int> new_coins(n+1) ;
-
-    new_coins[0] = -1 ;
-    int total = 0 ;
+void solve(vector<int> &coins){
+    int n = coins.size() ;
+    int Max = 0 ;
     for(int i = 0 ; i < n ; i++){
-        new_coins[i+1] = coins[i] ;
-        total = total + coins[i] ;
+        Max += coins[i] ;
     }
 
+    vector<vector<bool>> dp(n+1, vector<bool>(Max+1, false)) ;
 
-
-    vector<vector<bool>> check ; 
-
-    check.resize(n+1) ;
     for(int i = 0 ; i <= n ; i++){
-        check[i].resize(total + 1) ;
-    }
-
-    check[0][0] = true ;
-
-    for(int i = 1 ; i <= total ; i++){
-        check[0][i] = false ;
-    }
-    for(int i = 0 ; i <= n ; i++){
-        check[i][0] = true ;
-    }
-
-    for(int i = 1 ; i <= n ; i++){
-        check[i][new_coins[i]] = true ;
-        for(int j = 1 ; j <= total ; j++){
-
-            if(check[i-1][j]){
-                check[i][j] = true ;
-                check[i][j+ new_coins[i]] = true ;
+        for(int j = 0 ; j <= Max ; j++){
+            if(j == 0){
+                dp[i][j] = true ;
+            }
+            else if(i ==0){
+                dp[i][j] = false ;
+                // continue ;
+            }
+            else if(j < coins[i-1]){
+                dp[i][j] = dp[i-1][j] ;
+            }
+            else{
+                dp[i][j] = dp[i-1][j] || dp[i-1][j-coins[i-1]] ;
             }
         }
     }
-
-    vector<int> result ; 
-
-    for(int i = 1 ; i <= total ; i++){
-        if(check[n][i]){
-            result.push_back(i) ;
+    vector<int> ans ;
+    for(int i = 1 ; i <= Max ; i++){
+        if(dp[n][i]){
+            ans.push_back(i) ;
         }
     }
+    int size = ans.size() ;
+    cout<<size<<endl ;
+    for(int i = 0 ; i < size; i++){
+        cout<<ans[i]<<" " ;
+    }
+    cout<<endl ;
+}
 
-    return result ;
+void solve1(vector<int> &coins){
+    int n = coins.size() ;
+    int Max = 0 ;
+    for(int i = 0 ; i < n ; i++){
+        Max += coins[i] ;
+    }
+
+    vector<vector<bool>> dp(n+1, vector<bool>(Max+1, false)) ;
+    dp[0][0] = true ;
+    for(int i = 1 ; i <= n ; i++){
+        dp[i][coins[i-1]] = true ;
+        for(int j = 0 ; j <= Max ; j++){
+            if(j == 0){
+                dp[i][j] = true ;
+            }
+            if(dp[i-1][j]){
+                dp[i][j] = true ;
+                dp[i][j+coins[i-1]] = true ;
+            }
+        }
+    }
+    vector<int> ans ;
+    for(int i = 1 ; i <= Max ; i++){
+        if(dp[n][i]){
+            ans.push_back(i) ;
+        }
+    }
+    int size = ans.size() ;
+    cout<<size<<endl ;
+    for(int i = 0 ; i < size; i++){
+        cout<<ans[i]<<" " ;
+    }
+    cout<<endl ;    
 }
 
 int main(){
+
     ios_base::sync_with_stdio(false) ;
     cin.tie(NULL) ;
+    cout.tie(NULL) ;
 
-    int n ; 
-    cin>>n ; 
-
-    vector<int> coins(n) ;
+    int n = 0 ;
+    cin>>n ;
+    vector<int> coins(n, 0) ;
     for(int i = 0 ; i < n ; i++){
         cin>>coins[i] ;
     }
 
-    vector<int> result = solve(coins, n) ;
-
-    cout<<result.size()<<endl ;
-    for(unsigned int i = 0 ; i < result.size() ; i++){
-        cout<<result[i]<<" " ;
-    }
-    cout<<endl ; 
-
+    solve1(coins) ;
+    // solve(coins) ;
     return 0 ;
 }

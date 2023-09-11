@@ -1,84 +1,49 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std ;
 
-#include <chrono>
-using namespace std::chrono ;
+/*
+When we have to find answers such that a condition is true for some subsets and false for other subsets then this knapsack chips in
+so for the true subsets we require the answer, just build the table you will get the answer 
+dp[i][j] denotes with j price maximum number of pages you can buy using the books from 0 to i - 1.
+if prices[i-1] > j then we can not buy that book, if not we can buy it or not buy it so we take maximum among the both if we buy it we 
+will add number of pages of that book[i-1] 
+*/
+int solve(vector<int> &prices, vector<int> &pages, int x){
+    int n = pages.size() ;
+    vector<vector<int>> dp(n+1, vector<int>(x+1, 0)) ;
 
-int knapsack(vector<int> &price_books, vector<int> &pages_books, int max_cost, int n){
-
-    vector<vector<int>> max_pages ;
-
-    vector<int> price_book ;
-    vector<int> pages_book ;
-    price_book.push_back(-1) ;
-    pages_book.push_back(-1) ;
-
-    max_pages.resize(n+1) ;
-
-    for(int i = 0 ; i < n ; i++){
-        price_book.push_back(price_books[i]) ;
-        pages_book.push_back(pages_books[i]) ;
-    }
-
-    for(int i = 0 ; i <=n ; i++){
-        max_pages[i].resize(max_cost+1) ;
-    }
-
-    max_pages[0][0] = 0 ; 
-
-    for(int i = 1 ; i <= n; i++){
-        max_pages[i][0] = 0 ;
-    }
-    for(int i = 1 ; i <= max_cost ; i++){
-        max_pages[0][i] = 0 ;
-    }
-
-    for(int i = 1 ; i<= n ; i++){
-        for(int j = 1 ; j <= max_cost ; j++){
-            if(j < price_book[i]){
-                max_pages[i][j] = max_pages[i-1][j] ;
+    for(int i = 1 ; i <= n ; i++){
+        for(int j = 1 ; j <= x ; j++){
+            if(j < prices[i-1]){
+                dp[i][j] = dp[i-1][j] ;
             }
             else{
-                max_pages[i][j] = max(max_pages[i-1][j], max_pages[i-1][j - price_book[i]] + pages_book[i]) ;
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j-prices[i-1]] + pages[i-1]) ;
             }
         }
     }
-
-    return max_pages[n][max_cost] ;
+    return dp[n][x] ;
 }
-
 int main(){
 
     ios_base::sync_with_stdio(false) ;
     cin.tie(NULL) ;
+    cout.tie(NULL) ;
 
-    int n ; 
-    int max_cost ;
-    cin>>n>>max_cost ;
-    vector<int> price_book ;
-    vector<int> pages_book ;
+    int n = 0 ;
+    int x = 0 ;
+    cin>>n>>x ;
 
+    vector<int> prices(n, 0) ;
+    vector<int> pages(n, 0) ;
     for(int i = 0 ; i < n ; i++){
-        int l ;
-        cin>>l ;
-        price_book.push_back(l) ;
+        cin>>prices[i] ;
     }
     for(int i = 0 ; i < n ; i++){
-        int l ;
-        cin>>l ;
-        pages_book.push_back(l) ;
+        cin>>pages[i] ;
     }
 
-    auto start = high_resolution_clock::now();
-    int result = knapsack(price_book, pages_book, max_cost, n) ;
-    cout<<result<<endl ;
-
-    auto stop = high_resolution_clock::now();
-
-    auto duration = duration_cast<microseconds>(stop - start);
-    
-    // cout << max_pricePages<<endl ;
-
-    cout << duration.count() << endl;
+    int ans = solve(prices, pages, x) ;
+    cout<<ans<<endl ; 
     return 0 ;
 }

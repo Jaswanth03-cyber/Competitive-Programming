@@ -7,6 +7,8 @@
         "thread": "cpp",
         "type_traits": "cpp",
         "vector": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "queue": "cpp"
     }
 }

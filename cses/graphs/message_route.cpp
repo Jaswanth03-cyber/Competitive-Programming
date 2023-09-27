@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std ;
-
+ 
 class graph{
     private:
     int vertices ;
@@ -21,12 +21,12 @@ class graph{
         parent.resize(this->vertices + 1) ;
         fill(parent.begin(), parent.end(), -1) ;
     }
-
+ 
     void addedge(int a, int b){
         adjlist[a-1].push_back(b) ;
         adjlist[b-1].push_back(a) ;
     }
-
+ 
     void bfs(int source){
         queue<int> pq ;
         visited[source] = true ;
@@ -44,7 +44,7 @@ class graph{
             }
         }
     }
-
+ 
     vector<int> path(int n){
         vector<int> final_path ;
         for(int i = n ; i != -1 ; i = parent[i]){
@@ -53,32 +53,32 @@ class graph{
         reverse(final_path.begin(), final_path.end()) ;
         return final_path ;
     }
-
+ 
     int distance_source(int source, int n){
         bfs(source) ;
         return distance[n] ;
     }
 };
-
-
-
-
+ 
+ 
+ 
+ 
 int main(){
     ios_base::sync_with_stdio(false) ;
     cin.tie(NULL) ;
-
+ 
     int n ; 
     int m ;
     cin>>n>>m ;
     graph g(n, m) ;
-
+ 
     for(int i = 0 ; i < m ; i++){
         int a ;
         int b ;
         cin>>a>>b ;
         g.addedge(a,b) ;
     }
-
+ 
     int distance = g.distance_source(1,n) ;
     vector<int> final_path = g.path(n) ;
     if(distance == 0){
@@ -91,6 +91,6 @@ int main(){
         }
         cout<<endl ;
     }
-
+ 
     return 0 ;
 }

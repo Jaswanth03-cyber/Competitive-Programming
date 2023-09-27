@@ -2,6 +2,14 @@
 using namespace std ;
 
 /*
+https://copyprogramming.com/howto/why-is-topological-sort-needed-for-longest-path-in-directed-acyclic-graph
+*/
+
+/*
+We can not used modified ffs over here because we do not have an obtimal substructure like in the case of the shortest paths so that will be a problem
+so we need a optimal substructure so instead of those we build a topo sort 
+*/
+/*
 dfs obv works faster and even bfs works but larger vertices dfs works we can even do this in a different way by takign edges as -1 and finding the 
 shortest path as given there are no cycles which means we will not have -ve cycles to so we can use dijkstra.
 */

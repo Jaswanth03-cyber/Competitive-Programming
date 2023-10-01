@@ -24,14 +24,14 @@ class graph{
         adjlist[src-1].push_back(dest) ;
     }
 
-    bool dfs(int src){
+    bool dfs(int src, stack<int> &st){
         mpin[src] = timer++ ;
         color[src-1] = 'g' ;
         int size = adjlist[src-1].size() ;
         for(int i = 0 ; i < size ; i++){
             if(color[adjlist[src-1][i]-1] == 'w'){
                 // parent[adjlist[src-1][i]-1] = src ;
-                if(dfs(adjlist[src-1][i])){
+                if(dfs(adjlist[src-1][i], st)){
                     return true ;
                 }
             }
@@ -41,15 +41,18 @@ class graph{
         }
         color[src-1] = 'b' ;
         mpout[src] = timer++ ;
+
+        st.push(src) ;
         return false ;
     }
 
     void cycle(){
         bool stop = false ;
+        stack<int> st ;
         // dfs from 1 to n or n to 1 it results same as it depends on the edges direction, timerout gives the topo sort
         for(int i = 0 ; i <= vertices ; i++){
             if(color[i-1] == 'w'){
-                if(dfs(i)){
+                if(dfs(i, st)){
                     stop = true ;
                     break ;
                 }
@@ -68,6 +71,11 @@ class graph{
                 cout<<pq.top().second<<" " ;
                 pq.pop() ;
             }
+            while(!st.empty()){
+                cout<<st.top()<<" " ;
+                st.pop() ;
+            }
+            cout<<endl ;
             cout<<endl ;
         }
     }

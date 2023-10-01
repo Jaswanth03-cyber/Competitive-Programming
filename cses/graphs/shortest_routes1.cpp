@@ -30,17 +30,19 @@ class graph{
         int src = 0 ;
         int size = 0 ;
 
+
         while(!pq.empty()){
             src = pq.top().second ;
+            long long dis = pq.top().first ;
             pq.pop() ;
-            if(visited[src-1]){
-                continue ;
-            }
+            if(dis > distance[src-1]){
+              continue ; // main key this is to ensure that we do not get tle even with out this we will end up getting correct result but tle
+            } // this is done as we can not change the value in the priority queue so thats why we keep this to avoid uneccesary processing to avoid tle
             visited[src-1] = true ;
             size = adjlist[src-1].size() ;
             for(int i = 0 ; i < size ; i++){
-                if(distance[adjlist[src-1][i].first -1] > distance[src-1] + adjlist[src-1][i].second){
-                    distance[adjlist[src-1][i].first -1] = distance[src-1] + adjlist[src-1][i].second ;
+                if(distance[adjlist[src-1][i].first -1] > dis + adjlist[src-1][i].second){
+                    distance[adjlist[src-1][i].first -1] = dis + adjlist[src-1][i].second ;
                     pq.push(make_pair(distance[adjlist[src-1][i].first-1], adjlist[src-1][i].first)) ;
                 }
             }

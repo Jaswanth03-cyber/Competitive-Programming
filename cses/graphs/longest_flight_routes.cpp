@@ -6,12 +6,18 @@ https://copyprogramming.com/howto/why-is-topological-sort-needed-for-longest-pat
 */
 
 /*
-We can not used modified ffs over here because we do not have an obtimal substructure like in the case of the shortest paths so that will be a problem
+We can not used modified bfs over here because we do not have an obtimal substructure like in the case of the shortest paths so that will be a problem
 so we need a optimal substructure so instead of those we build a topo sort 
 */
 /*
 dfs obv works faster and even bfs works but larger vertices dfs works we can even do this in a different way by takign edges as -1 and finding the 
 shortest path as given there are no cycles which means we will not have -ve cycles to so we can use dijkstra.
+
+this will be a wrong one if 1 and n are not connected if in case they asks maximum distance between two nodes then we have to find the 
+topo sort of all the vertices see Atcoder G_Longest Path sum.
+
+here the src is fixed so we have to do dfs from one only. in the above atcoder one there he asked max distance between any two.
+so here for sure dfs must start from 1 and check if path exists or not not any path to the last vertex.
 */
 class graph{
     int vert ;

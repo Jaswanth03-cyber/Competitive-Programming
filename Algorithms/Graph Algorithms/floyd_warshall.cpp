@@ -42,7 +42,7 @@ class graph{
                     distance[i][adjlist[i-1][j].first] = adjlist[i-1][j].second ; 
                 }
                 // distance[i][adjlist[i-1][j].first] = adjlist[i-1][j].second ;
-                // this condition ic checked because if more edges between two vertices we are taking the minimum one 
+                // this condition is checked because if more edges between two vertices we are taking the minimum one 
             }
         }
 

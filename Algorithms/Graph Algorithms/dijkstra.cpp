@@ -99,7 +99,11 @@ class graph{
 
         while(!pq.empty()){
             int one = pq.top().second ; 
+            int dis = pq.top().first ;
             pq.pop() ;
+            if(dis > distance[one]){
+                continue ; // this is to ensure that uneccessary processing is not done
+            }
             for(int i = 0 ;i < adj[one].size() ; i++){
                 if((distance[one] + adj[one][i].second) < (distance[adj[one][i].first - 1])){
 

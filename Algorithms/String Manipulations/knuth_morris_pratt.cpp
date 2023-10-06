@@ -29,8 +29,25 @@ vector<int> prefix_function(string s){
     }
     return pi ;
 }
-
-
+void numberofsubstrings(string s){
+    vector<int> pi = prefix_function(s) ;
+    int n = s.length() ;
+    // ans[i] denotes number of times substring from 0 to i occurs in the string
+    vector<int> ans(n + 1, 0);
+    for (int i = 0; i < n; i++)
+        ans[pi[i]]++; // so this is clear counting number of times the prefix of length pi[i] occurs as a suffix in the substring 0 to i 
+    for (int i = n-1; i > 0; i--)
+        ans[pi[i-1]] += ans[i]; 
+    for (int i = 0; i <= n; i++)
+        ans[i]++; // this is the original substring itself
+/*
+for second loop
+so now if we see that for a position at i if pi[i] is the length of the prefix of the substring the contains in s[0...i], 
+we can also see that pi[i-1] length substring is also contained in s[0...i] so we are counting those we are counting from back to 
+not include some substrings multiple times. 
+as for example if you do from 0 then every prefix includes two times 
+*/
+}
 vector<int> find_indexes(string s, string text){
 
     string total = s + "$" + text ;

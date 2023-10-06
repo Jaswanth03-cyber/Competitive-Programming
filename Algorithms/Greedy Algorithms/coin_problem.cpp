@@ -9,7 +9,26 @@ it works for array of this form
 
 {1k, 2k, 5k...} only k being multiple of 10 
 */
-
+void solve(){
+    long long A ; // this was given around 1e9 we can maintain a vector of fibo and we can do like a coin sum but we can not maintain a vector of size 1e9 so there is an efficient greedy approach for it
+    vector<int> fibo;
+    for(int i=0;i<3;i++) {fibo.push_back(i);}
+    while(fibo[fibo.size()-1]<A){
+        fibo.push_back(fibo[fibo.size()-1]+fibo[fibo.size()-2]);
+        }
+    int ans=0;
+    int i=fibo.size()-1;
+    while(A>0)
+    {
+        if(fibo[i]<=A)
+        {
+            A-=fibo[i];
+            ans++;
+        }
+        else i--;
+    }
+    return ans;
+}
 #include<iostream>
 #include<vector>
 #include<algorithm>

@@ -39,29 +39,19 @@ till i =  3 but we need i = 5 as it is also a prime factor so if that condition 
 map<int, int> primefactorisation(int n){
     map<int, int> mp ;
     if(isprime(n)){
-        mp.insert({1,1}) ;
-        mp.insert({n,1}) ;
+        mp[1]++ ;
+        mp[n]++ ;
         return mp ;
     }
     int temp = n ;
     for(int i = 2 ; i*i <= temp ; i++){
         while(n%i == 0){
-            if(mp.find(i) != mp.end()){
-                mp[i]++ ;
-            }
-            else{
-                mp.insert({i, 1}) ;
-            }
+            mp[i]++ ;
             n = n/i ;
         }
     }
     if(n > 1){
-        if(mp.find(n) != mp.end()){
-            mp[n]++ ;
-        }
-        else{
-            mp.insert({n, 1}) ;
-        }
+        mp[n]++ ;
     }
     return mp ;
 }

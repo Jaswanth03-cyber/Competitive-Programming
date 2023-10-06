@@ -90,3 +90,9 @@ int main(){
     g.solve() ;
     return 0 ;
 }
+
+/*
+this is different from high score as high score has weights there we need to use bell man ford as ther can be postive cycles
+and also note that here maximum is counted based on number of vertices  visited previously so
+this is like in all the possible paths we have to takw the path which has more number of ways so we need to do topological sort foro sure.
+*/

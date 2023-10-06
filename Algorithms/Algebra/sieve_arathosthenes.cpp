@@ -9,7 +9,7 @@ using this
 
 here sieve[j] = 0 means it is prime if sieve[i] = 1 means it is not prime and inside for loop executes if i is a prime number 
 for(int i = 2 ; i <= n ; i++){
-    if(sieve[i] > 0){
+    if(sieve[i]){
         continue ;
     }
     for(int j = 2*i ; j <= n ; j = j + i){

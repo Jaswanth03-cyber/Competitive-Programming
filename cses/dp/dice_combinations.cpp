@@ -1,6 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
+
+/*
+for fibonacci numbers that approach is working greedy one.
+*/
 int solve(int n){
     int mod = 1e9 + 7 ;
     vector<int> dp(n+1, 0) ;

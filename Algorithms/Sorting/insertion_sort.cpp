@@ -4,6 +4,13 @@ using namespace std ;
 #define max 90 
 
 /*
+In computer science, an online algorithm is one that can process its input piece-by-piece in a serial fashion, i.e., 
+in the order that the input is fed to the algorithm, without having the entire input available from the start. In contrast, 
+an offline algorithm is given the whole problem data from the beginning and is required to output an answer which solves the problem at hand. 
+(For example, selection sort requires that the entire list be given before it can sort it, while insertion sort doesn't.)
+*/
+
+/*
 Iterate from arr[1] to arr[N] over the array. 
 
 Compare the current element (key) to its predecessor. 

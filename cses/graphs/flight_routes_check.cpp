@@ -12,7 +12,7 @@ now if in none of the cases if we dont have No then we can go from any cities to
 you can reach 1 from any other city. 
 
 in graph dfs(0) we will get all the vertices that can be reached from 0 
-in rev graph dfs(0) all the vertices from which we can reach 0.
+in rev graph dfs(0) all the vertices from which we can reach 0 or from what all vertices we can reach 0 in the original graph.
 */
 class graph{
     int vertices ;

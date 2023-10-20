@@ -2,7 +2,7 @@
 using namespace std ;
 
 /*
-thing is that this is bellman ford but when there is a positive and from that postive cycle if we can reach the destination then 
+thing is that this is bellman ford but when there is a positive cycle and from that postive cycle if we can reach the destination then 
 our distance to the destination can be infinite 
 
 so if we do dfs in a graph from a src then whenever visited is true in the sense we can reach all those vertices from that src

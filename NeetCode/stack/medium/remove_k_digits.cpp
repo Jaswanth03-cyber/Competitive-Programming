@@ -4,6 +4,37 @@ using namespace std ;
 /*
 https://leetcode.com/problems/remove-k-digits/
 */
+class Solution {
+public:
+    string removeKdigits(string num, int k) {
+        stack<char> st ;
+        st.push(num[0]) ;
+        for(int i = 1 ; i < num.length() ; i++){
+            while(!st.empty() && k > 0 && st.top() > num[i]){
+                st.pop() ;
+                k-- ;
+            }
+            st.push(num[i]) ;
+        }
+        while(k--){
+            st.pop() ;
+        }
+
+        string ans ;
+        while(!st.empty()){
+           ans.push_back(st.top()) ;
+           st.pop() ;
+        }
+        reverse(ans.begin(), ans.end()) ;
+        while(ans[0] == '0'){
+           ans.erase(0, 1) ;
+        }
+        if(ans== ""){
+            return "0" ;
+        }
+        return ans ;
+    }
+};
 
 /*
 so like if we just observe the numbers we push the numbers if we encounter a minimum we are removing the elements from the top and
@@ -18,34 +49,6 @@ so we remove last k digits
 
 1432219 for this even before the complete string is processed k will be zero so we can not change, so after for loop as k == 0 we will end up with the final result
 note in the stack is in reverse direction be careful.
-*/
-class Solution {
-public:
-    string removeKdigits(string num, int k) {
-        stack<char> st ;
-        st.push(num[0]) ;
-        for(int i = 1 ; i < num.length() ; i++){
-            while(!st.empty() && k > 0 && st.top() > num[i]){ // here its not >= as we will get a wrong answer for 112 and k = 1 we will end up with 12 rather than 11
-                st.pop() ;
-                k-- ;
-            }
-            st.push(num[i]) ;
-        }
-        while(k--){
-            st.pop() ;
-        }
 
-        string ans = "" ;
-        while(!st.empty()){
-           ans = st.top() + ans ;
-           st.pop() ;
-        }
-        while(ans[0] == '0'){
-           ans.erase(0, 1) ;
-        }
-        if(ans== ""){
-            return "0" ;
-        }
-        return ans ;
-    }
-};
+there is a difference between appending a string by adding or by just pushing back 
+*/

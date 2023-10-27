@@ -45,3 +45,9 @@ public:
         return ans ;
     }
 };
+
+/*
+here the second approach is such that we assume i is in the longest increasing subsequence and we obtain what is the maximum length 
+we can achieve with i in the longest subseqnece from 0 to i. this can help in solving sums which has highest score among all the teams 
+with some constraints.
+*/

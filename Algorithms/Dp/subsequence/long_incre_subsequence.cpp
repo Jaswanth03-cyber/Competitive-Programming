@@ -125,3 +125,8 @@ int main(){
 
     return 0 ;
 }
+
+/*
+here the second approach is such that we assume i is in the longest increasing subsequence and we obtain what is the maximum length 
+we can achieve with i in the longest subseqnece from 0 to i.
+*/

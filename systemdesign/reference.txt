@@ -1,0 +1,13 @@
+https://lldcoding.com/
+
+https://www.codingninjas.com/studio/library/low-level-design-lld
+
+https://www.youtube.com/playlist?list=PLAC2AM9O1C5KioUMeH9qIjbAV_RMmX8rd
+
+https://www.youtube.com/playlist?list=PLJN9ydlFnJsiEgyjO3D3yBhtiENymhF8G
+
+https://www.youtube.com/playlist?list=PL12BCqE-Lp650Cg6FZW7SoZwN8Rw1WJI7
+
+https://www.youtube.com/playlist?list=PLK8IOvtbwVsvNkgaI0UAnwOOW5TjXnWqe
+
+https://github.com/tssovi/grokking-the-object-oriented-design-interview/tree/master/example-codes // good one
